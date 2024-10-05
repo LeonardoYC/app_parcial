@@ -12,7 +12,7 @@ namespace app_parcial.Controllers
 {
     public class TransaccionController : Controller
     {
-        private readonly ILogger<TransaccionController> _logger;
+private readonly ILogger<TransaccionController> _logger;
         private readonly ApplicationDbContext _context;
 
         public TransaccionController(ILogger<TransaccionController> logger, ApplicationDbContext context)
@@ -21,6 +21,11 @@ namespace app_parcial.Controllers
             _context = context;
         }
 
+        // Vista principal
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         // Mostrar el formulario de creación
         public IActionResult Crear()
@@ -61,5 +66,18 @@ namespace app_parcial.Controllers
             return View(transaccion); // Volver a mostrar el formulario en caso de error
         }
 
+
+        // Listar transacciones
+        public IActionResult Listar()
+        {
+            var transacciones = _context.DataTransaccion.ToList();
+            return View(transacciones);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View("Error!");
+        }
     }
 }
