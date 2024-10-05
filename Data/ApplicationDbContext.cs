@@ -9,4 +9,6 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     {
     }
+    public DbSet<app_parcial.Models.Transaccion> DataTransaccion {get; set; }
+    public DbSet<app_parcial.Models.HistorialConversion> DataHistorialConversion {get; set; }
 }
