@@ -1,0 +1,44 @@
+@model IEnumerable<app_parcial.Models.Transaccion>
+
+@{
+    ViewData["Title"] = "Listado de Remesas";
+}
+
+<h2>Listado de Remesas</h2>
+<div class="table-responsive">
+    <table class="table ">
+        <thead>
+            <tr>
+                <th>Remitente</th>
+                <th>Destinatario</th>
+                <th>País de Origen</th>
+                <th>País de Destino</th>
+                <th>Monto Enviado</th>
+                <th>Moneda Origen</th>
+                <th>Moneda Destino</th>
+                <th>Tasa de Cambio</th>
+                <th>Monto Final</th>
+                <th>Fecha</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var transaccion in Model)
+            {
+                <tr>
+                    <td>@transaccion.Remitente</td>
+                    <td>@transaccion.Destinatario</td>
+                    <td>@transaccion.PaisOrigen</td>
+                    <td>@transaccion.PaisDestino</td>
+                    <td>@transaccion.MontoEnviado</td>
+                    <td>@transaccion.MonedaOrigen</td>
+                    <td>@transaccion.MonedaDestino</td>
+                    <td>@transaccion.TasaCambio</td>
+                    <td>@transaccion.MontoFinal</td>
+                    <td>@transaccion.Fecha.ToString("g")</td>
+                    <td>@transaccion.Estado</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
