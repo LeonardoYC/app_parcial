@@ -61,10 +61,13 @@ private readonly ILogger<TransaccionController> _logger;
                 // Guardar en la base de datos
                 _context.DataTransaccion.Add(transaccion);
                 _context.SaveChanges();
+
+                return RedirectToAction(nameof(Crear));
             }
 
-            return View(transaccion); // Volver a mostrar el formulario en caso de error
+            return View(transaccion); // Volver a mostrar el formulario
         }
+
 
 
         // Listar transacciones
